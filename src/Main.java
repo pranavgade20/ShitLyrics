@@ -5,6 +5,7 @@ import java.nio.charset.CharsetEncoder;
 import java.util.Scanner;
 
 public class Main {
+    public static final int WORDS_LIMIT = 10000;
     public static void main(String[] args) throws Exception{
         Chain chain = new Chain("hello");
 
@@ -35,7 +36,7 @@ public class Main {
         System.out.println("Done training");
 
         Word prev = chain.predictFirst();
-        for (int i = 0; i < 10000; i++) {
+        for (int i = 0; i < WORDS_LIMIT; i++) {
             Word next = chain.predict(prev);
             System.out.print(prev.text + " ");
             prev = next;
